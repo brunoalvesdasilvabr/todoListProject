@@ -1,21 +1,31 @@
-<input type="text" pInputText [(ngModel)]="value" />
 
-<ng-container *ngIf="products$ | async as products">
-    <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+<div class="home__input-container">
+    <input type="text" pInputText #inputValue />
+    <p-button class="home__btn-createTodo" (click)="showDialog = !showDialog" icon="pi pi-external-link" label="Create your todo"></p-button>
+</div>
+
+<app-modal-dialog [showDialog]="showDialog"></app-modal-dialog>
+
+<ng-container *ngIf="todos$ | async as todos">
+    <p-table [value]="todos" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
             <tr>
-                <th>Code</th>
+                <th>ID</th>
                 <th>Name</th>
-                <th>Category</th>
-                <th>Quantity</th>
+                <th>Priority</th>
+                <th>Due Date</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-product>
+        <ng-template pTemplate="body" let-todo>
             <tr>
-                <td>{{ product.id }}</td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.priority }}</td>
-                <td>{{ product.dueDate }}</td>
+                <td>{{ todo.id }}</td>
+                <td>{{ todo.name }}</td>
+                <td>{{ todo.priority }}</td>
+                <td>{{ todo.dueDate | date:'d/M/yyyy' }}
+
+                    <p-button (click)="deleteTodo(todo)"styleClass="p-button-raised p-button-danger">Delete Todo</p-button>
+
+                </td>
             </tr>
         </ng-template>
     </p-table>

@@ -1,0 +1,37 @@
+<p-dialog [(visible)]="showDialog" label="Create Todo" [modal]="true" [style]="{ width: '80vw',height:'120vh' }" [draggable]="false" [resizable]="false">
+    
+    <form [formGroup]="createTodoForm"  (ngSubmit)="addTodo()">
+      <div class="modal-dialog__input-container">
+        <label for="name">Name: </label>
+        <input id="name" type="text" pInputText formControlName="name"/>
+      </div>
+      <div class="modal-dialog__input-container">
+        <label for="dueDate">dueDate: </label>
+        <div class="modal-dialog__calendar-container">
+            <p-calendar class="max-w-full"  [style]="{'z-index':'9999999'}" [showIcon]="true" [minDate]="date.today" id="dueDate" formControlName="dueDate" dateFormat="dd.mm.yy"></p-calendar>
+
+        </div>
+
+    </div>
+      
+        <div class="modal-dialog__input-container">
+            <label for="priority">Priority: </label>
+            <div class="flex align-items-center">
+                <p-radioButton name="priority" value="Urgent"  formControlName="priority" inputId="opt1"></p-radioButton>
+                <label for="opt2" class="ml-2">Urgent</label>
+            </div>
+            
+            <div class="flex align-items-center">
+                <p-radioButton name="priority" value="Not urgent" formControlName="priority" inputId="opt2"></p-radioButton>
+                <label for="opt2" class="ml-2">Not Urgent</label>
+            </div>
+        </div>
+       
+      
+       
+       
+      <p-button type="submit" >Add Todo</p-button>
+
+    </form>
+
+</p-dialog>
