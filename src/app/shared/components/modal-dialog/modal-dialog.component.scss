@@ -1,0 +1,25 @@
+.modal-dialog{
+    &__input-container{
+        margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    input,.modal-dialog__calendar-container{
+        margin-left: 2rem;
+
+    }
+    p-radioButton{
+        margin:0 1rem;
+    }
+}
+
+    
+
+    &__calendar-container{
+            width: 14rem;
+    }
+
+    
+   
+   
+}

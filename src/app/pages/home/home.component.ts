@@ -10,8 +10,23 @@ import { TodoStoreService } from 'src/app/store/todo/todo-store.service';
 })
 export class HomeComponent {
   value!:string
-  products$!:Observable<TodoInterface[]>
+  todos$!:Observable<TodoInterface[]>
+  showDialog = false
   constructor(private todoStore: TodoStoreService){
-this.products$ = this.todoStore.todo$
+this.todos$ = this.todoStore.todo$
   }
+
+  deleteTodo(todo:TodoInterface){
+this.todoStore.deleteTodo(todo)
+  }
+
+  // filterTodos(word:string){
+  //   return this.todos$.pipe(
+  //     filter(item => {
+  //     return Object.keys(item).some(key => {
+  //       console.log(item)
+  //       return String(item[key]).toLowerCase().includes(searchText.toLowerCase());
+  //     });
+  //   }))
+  // }
 }
