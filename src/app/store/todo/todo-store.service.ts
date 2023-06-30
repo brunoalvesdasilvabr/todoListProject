@@ -24,7 +24,13 @@ private _todo$ = new BehaviorSubject<TodoInterface[]>([])
         id:Math.floor(Math.random() * 1000),
         name:'clean house',
         priority:'urgent',
-        dueDate: new Date()
+        dueDate: new Date('July 1, 2023 01:15:00')
+      },
+      {
+        id:Math.floor(Math.random() * 1000),
+        name:'take out trash',
+        priority:'not urgent',
+        dueDate: new Date('July 21, 2023 01:15:00')
       }
     ])
   }
