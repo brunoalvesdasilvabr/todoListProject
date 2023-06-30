@@ -1,9 +1,10 @@
 .modal-dialog{
     &__input-container{
         margin-bottom: 1rem;
+        width: 20rem;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     input,.modal-dialog__calendar-container{
         margin-left: 2rem;
 
@@ -16,10 +17,14 @@
     
 
     &__calendar-container{
-            width: 14rem;
+            width: 13rem;
     }
 
-    
-   
    
 }
+:host  ::ng-deep{
+    .p-button[type="submit"]{
+   position: absolute;
+   bottom: 2rem;
+}}
+  

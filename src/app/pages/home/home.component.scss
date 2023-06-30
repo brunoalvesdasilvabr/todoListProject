@@ -9,9 +9,14 @@
         padding-left: 2rem;
     }
 }
-:ng-deep{
+.lastCol{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+::ng-deep{
      .p-button.p-button-danger{
-    width: 6rem;
+    width: 6rem!important;
     height: 2rem;
     font-size: .6rem;
 }

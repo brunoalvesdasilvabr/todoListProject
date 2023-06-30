@@ -32,6 +32,7 @@ addTodo(){
   const newTodo:TodoInterface = {...this.createTodoForm.value,id:this.generateId()} as TodoInterface
   this.todoStore.setNewTodo(newTodo)
 this.showDialog = false
+this.createTodoForm.reset()
 }
 
 

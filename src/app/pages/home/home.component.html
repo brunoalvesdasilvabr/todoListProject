@@ -1,15 +1,15 @@
 
 <div class="home__input-container">
-    <input type="text" pInputText #inputValue />
+    <input placeholder="Search Todo"  type="text" pInputText #inputValue />
     <p-button class="home__btn-createTodo" (click)="showDialog = !showDialog" icon="pi pi-external-link" label="Create your todo"></p-button>
 </div>
 
 <app-modal-dialog [showDialog]="showDialog"></app-modal-dialog>
 
 <ng-container *ngIf="todos$ | async as todos">
-    <p-table [value]="todos" [tableStyle]="{ 'min-width': '50rem' }">
+    <p-table [value]="todos | filter:inputValue.value" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
-            <tr>
+            <tr> 
                 <th>ID</th>
                 <th>Name</th>
                 <th>Priority</th>
@@ -21,10 +21,8 @@
                 <td>{{ todo.id }}</td>
                 <td>{{ todo.name }}</td>
                 <td>{{ todo.priority }}</td>
-                <td>{{ todo.dueDate | date:'d/M/yyyy' }}
-
+                <td class="lastCol">{{ todo.dueDate | date:'d/M/yyyy' }}
                     <p-button (click)="deleteTodo(todo)"styleClass="p-button-raised p-button-danger">Delete Todo</p-button>
-
                 </td>
             </tr>
         </ng-template>
